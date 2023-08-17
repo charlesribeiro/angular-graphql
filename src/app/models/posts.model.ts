@@ -4,6 +4,7 @@ export interface Posts {
   error: boolean;
   page: number;
   totalCount: number;
+  detailedPost: DetailedPost;
 }
 
 export interface PostData {
@@ -13,5 +14,24 @@ export interface PostData {
   user: {
     name: string;
     username: string;
+  };
+}
+
+export interface DetailedPost {
+  id: string;
+  title: string;
+  body: string;
+  user: {
+    name: string;
+    username: string;
+  };
+  comments: {
+    data: [
+      {
+        name: string;
+        email: string;
+        body: string;
+      },
+    ];
   };
 }

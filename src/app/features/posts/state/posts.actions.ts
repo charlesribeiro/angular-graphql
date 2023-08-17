@@ -30,7 +30,8 @@ export const getPostByIdSuccess = createAction(
 );
 
 export const getPostByIdFailure = createAction(
-  '[Posts API] get post by id failure'
+  '[Posts API] get post by id failure',
+  props<{ message: string }>()
 );
 
 export const getSearchedPosts = createAction(
