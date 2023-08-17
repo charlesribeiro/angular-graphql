@@ -6,10 +6,28 @@ import { SharedModule } from '../../shared/shared.module';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { DetailedPostComponent } from './components/detailed-post/detailed-post.component';
 import { RouterModule } from '@angular/router';
+import { CreatePostComponent } from './components/create-post/create-post.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [PostsComponent, PostListItemComponent, DetailedPostComponent],
-  imports: [CommonModule, SharedModule, InfiniteScrollModule, RouterModule],
-  exports: [PostsComponent, PostListItemComponent],
+  declarations: [
+    PostsComponent,
+    PostListItemComponent,
+    DetailedPostComponent,
+    CreatePostComponent,
+  ],
+  imports: [
+    CommonModule,
+    SharedModule,
+    InfiniteScrollModule,
+    RouterModule,
+    ReactiveFormsModule,
+  ],
+  exports: [
+    PostsComponent,
+    PostListItemComponent,
+    DetailedPostComponent,
+    CreatePostComponent,
+  ],
 })
 export class PostsModule {}

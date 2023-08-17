@@ -66,3 +66,13 @@ export const GET_POSTS_BY_SEARCH = gql`
     }
   }
 `;
+
+export const CREATE_POST = gql`
+  mutation ($input: CreatePostInput!) {
+    createPost(input: $input) {
+      id
+      title
+      body
+    }
+  }
+`;

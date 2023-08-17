@@ -74,4 +74,19 @@ export class PostsService {
       },
     }).valueChanges;
   }
+
+  createSinglePost(
+    id: number,
+    title: string,
+    body: string
+  ): Observable<ApolloQueryResult<any>> {
+    return this.apollo.watchQuery({
+      query: GET_SINGLE_POST,
+      variables: {
+        id,
+        title,
+        body,
+      },
+    }).valueChanges;
+  }
 }
