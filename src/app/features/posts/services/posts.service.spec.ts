@@ -1,7 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import {
-  ApolloTestingModule,
-} from 'apollo-angular/testing';
+import { ApolloTestingModule } from 'apollo-angular/testing';
 import { PostsService } from './posts.service';
 import { Apollo } from 'apollo-angular';
 import { of } from 'rxjs';
@@ -19,7 +17,11 @@ describe('PostsService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PostsService, ApolloTestingModule, { provide: Apollo, useValue: mockApollo }],
+      providers: [
+        PostsService,
+        ApolloTestingModule,
+        { provide: Apollo, useValue: mockApollo },
+      ],
     });
 
     service = TestBed.inject(PostsService);

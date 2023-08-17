@@ -1,20 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { PostsService } from '../../services/posts.service';
+import { Store } from '@ngrx/store';
+import { IApp } from '../../../../state/app.interface';
 
+import * as fromPostsActions from '../../state/posts.actions';
+import * as fromPostsSelectors from '../../state/posts.selectors';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { PostData } from '../../../../models/posts.model';
+
+@UntilDestroy()
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss'],
 })
 export class PostsComponent implements OnInit {
-  constructor(
-    private postsService: PostsService
-  ) {
-  }
+  allPosts: PostData[] = [];
+
+  constructor(private store: Store<IApp>) {}
 
   ngOnInit(): void {
-    this.postsService.getSinglePost(2).subscribe(({ data, error }: any) => {
-      debugger;
-    });
+    this.store.dispatch(fromPostsActions.getAllPosts());
+
+    this.store
+      .select(fromPostsSelectors.selectAllPosts)
+      .pipe(untilDestroyed(this))
+      .subscribe(allPosts => (this.allPosts = allPosts));
   }
 }
