@@ -8,3 +8,13 @@ export const selectAllPosts = createSelector(
   selectFeature,
   (posts: Posts) => posts.entities
 );
+
+export const selectAllPostsLoading = createSelector(
+  selectFeature,
+  (posts: Posts) => posts.loading
+);
+
+export const selectAllPostsError = createSelector(
+  selectFeature,
+  (posts: Posts) => posts.error
+);

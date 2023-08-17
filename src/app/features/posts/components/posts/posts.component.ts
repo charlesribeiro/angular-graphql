@@ -15,6 +15,8 @@ import { PostData } from '../../../../models/posts.model';
 })
 export class PostsComponent implements OnInit {
   allPosts: PostData[] = [];
+  loading = false;
+  error = false;
 
   constructor(private store: Store<IApp>) {}
 
@@ -25,5 +27,15 @@ export class PostsComponent implements OnInit {
       .select(fromPostsSelectors.selectAllPosts)
       .pipe(untilDestroyed(this))
       .subscribe(allPosts => (this.allPosts = allPosts));
+
+    this.store
+      .select(fromPostsSelectors.selectAllPostsLoading)
+      .pipe(untilDestroyed(this))
+      .subscribe(loading => (this.loading = loading));
+
+    this.store
+      .select(fromPostsSelectors.selectAllPostsError)
+      .pipe(untilDestroyed(this))
+      .subscribe(error => (this.error = error));
   }
 }

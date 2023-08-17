@@ -1,4 +1,6 @@
 <app-wrapper>
+  <app-loader *ngIf="loading">Loading...</app-loader>
+  <div *ngIf="error">Error</div>
   <table class="table-auto">
     <tr *ngFor="let post of allPosts">
       <app-post-list-item [post]="post"></app-post-list-item>
