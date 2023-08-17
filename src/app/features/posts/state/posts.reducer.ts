@@ -7,6 +7,9 @@ import {
   getAllPostsFinish,
   getAllPostsMore,
   getAllPostsSuccess,
+  getPostById,
+  getPostByIdFailure,
+  getPostByIdSuccess,
   getSearchedPosts,
   getSearchedPostsFailure,
   getSearchedPostsSuccess,
@@ -61,6 +64,22 @@ export const reducer = createReducer(
     totalCount,
   })),
   on(getSearchedPostsFailure, state => ({
+    ...state,
+    loading: false,
+    error: true,
+  })),
+  on(getPostById, state => ({
+    ...state,
+    loading: true,
+    error: false,
+  })),
+  on(getPostByIdSuccess, (state, { post }) => ({
+    ...state,
+    loading: false,
+    error: false,
+    detailedPost: post,
+  })),
+  on(getPostByIdFailure, state => ({
     ...state,
     loading: false,
     error: true,

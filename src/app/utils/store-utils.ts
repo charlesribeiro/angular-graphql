@@ -6,4 +6,16 @@ export const postsInitialState: Posts = {
   error: false,
   page: 1,
   totalCount: -1,
+  detailedPost: {
+    id: '',
+    title: '',
+    body: '',
+    user: {
+      name: '',
+      username: '',
+    },
+    comments: {
+      data: [{ name: '', email: '', body: '' }],
+    },
+  },
 };

@@ -6,6 +6,7 @@ import * as fromPostsActions from '../../state/posts.actions';
 import * as fromPostsSelectors from '../../state/posts.selectors';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { PostData } from '../../../../models/posts.model';
+import { Router } from '@angular/router';
 
 @UntilDestroy()
 @Component({
@@ -18,7 +19,10 @@ export class PostsComponent implements OnInit {
   loading = false;
   error = false;
 
-  constructor(private store: Store<IApp>) {}
+  constructor(
+    private store: Store<IApp>,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.store.dispatch(fromPostsActions.getAllPosts());
@@ -39,16 +43,15 @@ export class PostsComponent implements OnInit {
       .subscribe(error => (this.error = error));
   }
 
-  search(search: string) {
-    console.log(search);
+  search(search: string): void {
     this.store.dispatch(fromPostsActions.getSearchedPosts({ search }));
   }
 
-  clickedOnPost(id: string) {
-    debugger;
+  clickedOnPost(id: string): void {
+    this.router.navigate(['/post', id]);
   }
 
-  onScrolled() {
+  onScrolled(): void {
     this.store.dispatch(fromPostsActions.getAllPostsMore());
     return;
   }

@@ -47,13 +47,31 @@ export class PostEffects {
       switchMap(({ search }) =>
         this.postService.searchPostsByTitle(search, 1, 15).pipe(
           map(apolloResult => {
-            return fromPostsActions.getAllPostsSuccess({
+            return fromPostsActions.getSearchedPostsSuccess({
               posts: apolloResult.data.posts.data,
               totalCount: apolloResult.data.posts.meta.totalCount,
             });
           }),
           catchError(({ message }) =>
-            of(fromPostsActions.getAllPostsFailure({ message }))
+            of(fromPostsActions.getSearchedPostsFailure({ message }))
+          )
+        )
+      )
+    )
+  );
+
+  getDetailedPost$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fromPostsActions.getPostById),
+      switchMap(({ id }) =>
+        this.postService.getSinglePost(id, 1, 15).pipe(
+          map(apolloResult => {
+            return fromPostsActions.getPostByIdSuccess({
+              post: apolloResult.data.post,
+            });
+          }),
+          catchError(({ message }) =>
+            of(fromPostsActions.getPostByIdFailure({ message }))
           )
         )
       )
