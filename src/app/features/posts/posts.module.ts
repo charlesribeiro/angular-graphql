@@ -4,9 +4,7 @@ import { PostsComponent } from './components/posts/posts.component';
 
 @NgModule({
   declarations: [PostsComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [PostsComponent]
+  imports: [CommonModule],
+  exports: [PostsComponent],
 })
-export class PostsModule { }
+export class PostsModule {}

@@ -18,13 +18,14 @@
     "allowSyntheticDefaultImports": true,
     "target": "ES2022",
     "module": "es2020",
-    "lib": ["es2020", "dom"],
+    "lib": ["es2020", "dom", "esnext.asynciterable"],
     "paths": {
       "~assets/*": ["src/assets/*"],
       "~environments/*": ["src/environments/*"],
       "~shared/*": ["src/app/shared/*"],
       "~modules/*": ["src/app/modules/*"]
     },
+    "types": ["jest"],
     "typeRoots": ["./node_modules/@types", "./src/typings.d.ts"],
     "useDefineForClassFields": false
   },
