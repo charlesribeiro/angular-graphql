@@ -1,10 +1,15 @@
 export interface Posts {
   entities: PostData[];
   loading: boolean;
-  error: false;
+  error: boolean;
 }
 
-interface PostData {
+export interface PostData {
   id: string;
   title: string;
+  body: string;
+  user: {
+    name: string;
+    username: string;
+  };
 }

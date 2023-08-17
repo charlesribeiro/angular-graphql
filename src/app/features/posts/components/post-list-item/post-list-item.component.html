@@ -1,0 +1,5 @@
+<div (click)="onPostClicked()" [attr.id]="post.id" class="flex cursor-pointer width-100">
+  <div class="width-25 px-2">{{ post.id }}</div>
+  <div class="width-50 font-bold break-words px-2">{{ post.title }}</div>
+  <div class="width-25 px-2">{{ post.user.username }}</div>
+</div>
