@@ -38,4 +38,9 @@ export class PostsComponent implements OnInit {
       .pipe(untilDestroyed(this))
       .subscribe(error => (this.error = error));
   }
+
+  search(searchTerm: string) {
+    console.log(searchTerm);
+    debugger;
+  }
 }

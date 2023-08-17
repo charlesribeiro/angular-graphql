@@ -1,7 +1,8 @@
 <app-wrapper>
+  <app-search (search)="search($event)"></app-search>
   <app-loader *ngIf="loading">Loading...</app-loader>
   <div *ngIf="error">Error</div>
-  <table class="table-auto">
+  <table class="table-auto width-100 my-4">
     <tr *ngFor="let post of allPosts">
       <app-post-list-item [post]="post"></app-post-list-item>
     </tr>
