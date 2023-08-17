@@ -7,7 +7,11 @@ export const getAllPostsMore = createAction('[Posts] get more all posts');
 
 export const getAllPostsSuccess = createAction(
   '[Posts API] get all posts success',
-  props<{ posts: PostData[] }>()
+  props<{ posts: PostData[]; totalCount: number }>()
+);
+
+export const getAllPostsFinish = createAction(
+  '[Posts API] get all posts finish'
 );
 
 export const getAllPostsFailure = createAction(
@@ -41,7 +45,7 @@ export const getSearchedPostsMore = createAction(
 
 export const getSearchedPostsSuccess = createAction(
   '[Posts API] get searched posts success',
-  props<{ posts: PostData[] }>()
+  props<{ posts: PostData[]; totalCount: number }>()
 );
 
 export const getSearchedPostsFailure = createAction(

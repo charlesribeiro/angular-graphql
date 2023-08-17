@@ -3,6 +3,7 @@ export interface Posts {
   loading: boolean;
   error: boolean;
   page: number;
+  totalCount: number;
 }
 
 export interface PostData {

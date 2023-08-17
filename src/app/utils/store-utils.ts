@@ -5,4 +5,5 @@ export const postsInitialState: Posts = {
   loading: false,
   error: false,
   page: 1,
+  totalCount: -1,
 };

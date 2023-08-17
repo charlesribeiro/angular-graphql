@@ -4,9 +4,16 @@
 
   <table class="table-auto width-100 my-4 flex-items">
     <div *ngIf="error">Error</div>
-    <div *ngIf="!error" infinite-scroll [infiniteScrollDistance]="0.5" [infiniteScrollThrottle]="2000" (scrolled)="onScrolled()">
+    <div
+      *ngIf="!error"
+      infinite-scroll
+      [infiniteScrollDistance]="0.5"
+      [infiniteScrollThrottle]="1500"
+      (scrolled)="onScrolled()">
       <tr *ngFor="let post of allPosts">
-        <app-post-list-item [post]="post" (clicked)="clickedOnPost($event)"></app-post-list-item>
+        <app-post-list-item
+          [post]="post"
+          (clicked)="clickedOnPost($event)"></app-post-list-item>
       </tr>
       <app-loader *ngIf="loading"></app-loader>
     </div>
