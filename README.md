@@ -13,6 +13,7 @@ Make sure you have NPM and Yarn installed on your machine, install dependencies 
 - Redux (NgRx + RxJs)
 - Jest (jest-preset-angular)
 - Github Actions
+- Infinite Scrolling (ngx-infinite-scroll) and pagination 
 
 ## Cool Features
 
@@ -24,3 +25,7 @@ Make sure you have NPM and Yarn installed on your machine, install dependencies 
 ## Code coverage
 
 This project aims to have a high unit test coverage for statements.
+
+## Credits
+
+This project uses the mock APIs from here (https://graphqlzero.almansi.me/).
