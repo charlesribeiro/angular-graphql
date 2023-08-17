@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { PostData } from 'src/app/models/posts.model';
+import { DetailedPost, PostData } from 'src/app/models/posts.model';
 
 export const getAllPosts = createAction('[Posts] get all posts');
 
@@ -26,7 +26,7 @@ export const getPostById = createAction(
 
 export const getPostByIdSuccess = createAction(
   '[Posts API] get post by id success',
-  props<{ post: any }>()
+  props<{ post: DetailedPost }>()
 );
 
 export const getPostByIdFailure = createAction(
@@ -61,7 +61,7 @@ export const createPostById = createAction(
 
 export const createPostByIdSuccess = createAction(
   '[Posts API] create post by id success',
-  props<{ post: any }>()
+  props<{ post: PostData }>()
 );
 
 export const createPostByIdFailure = createAction(
