@@ -33,6 +33,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "apollo-angular": "^4.2.0",
     "graphql": "^16",
+    "ngx-infinite-scroll": "^16.0.0",
     "postcss": "^8.4.28",
     "postcss-import": "^15.1.0",
     "postcss-loader": "^7.3.3",

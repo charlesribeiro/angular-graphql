@@ -1,11 +1,17 @@
 import { createAction, props } from '@ngrx/store';
 import { PostData } from 'src/app/models/posts.model';
 
-export const getAllPosts = createAction('[Posts] get posts');
+export const getAllPosts = createAction('[Posts] get all posts');
+
+export const getAllPostsMore = createAction('[Posts] get more all posts');
 
 export const getAllPostsSuccess = createAction(
   '[Posts API] get all posts success',
-  props<{ posts: PostData[] }>()
+  props<{ posts: PostData[]; totalCount: number }>()
+);
+
+export const getAllPostsFinish = createAction(
+  '[Posts API] get all posts finish'
 );
 
 export const getAllPostsFailure = createAction(
@@ -32,9 +38,14 @@ export const getSearchedPosts = createAction(
   props<{ search: string }>()
 );
 
+export const getSearchedPostsMore = createAction(
+  '[Posts] get searched posts more',
+  props<{ search: string }>()
+);
+
 export const getSearchedPostsSuccess = createAction(
   '[Posts API] get searched posts success',
-  props<{ posts: PostData[] }>()
+  props<{ posts: PostData[]; totalCount: number }>()
 );
 
 export const getSearchedPostsFailure = createAction(

@@ -18,3 +18,13 @@ export const selectAllPostsError = createSelector(
   selectFeature,
   (posts: Posts) => posts.error
 );
+
+export const selectAllPostsPage = createSelector(
+  selectFeature,
+  (posts: Posts) => posts.page
+);
+
+export const areAllPostsLoaded = createSelector(
+  selectFeature,
+  (posts: Posts) => posts.totalCount === posts.entities.length
+);
