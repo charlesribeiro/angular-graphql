@@ -10,6 +10,7 @@ import { PostEffects } from './features/posts/state/posts.effects';
 import { PostsModule } from './features/posts/posts.module';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from '../app/shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     PostsModule,
+    SharedModule,
     EffectsModule.forRoot([PostEffects]),
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
