@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PostListItemComponent } from './post-list-item.component';
+import { mockPost } from '../../../../utils/mockPost';
 
 describe('PostListItemComponent', () => {
   let component: PostListItemComponent;
@@ -8,10 +9,11 @@ describe('PostListItemComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PostListItemComponent]
+      declarations: [PostListItemComponent],
     });
     fixture = TestBed.createComponent(PostListItemComponent);
     component = fixture.componentInstance;
+    component.post = mockPost;
     fixture.detectChanges();
   });
 

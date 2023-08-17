@@ -31,4 +31,22 @@ export class PostEffects {
       )
     )
   );
+
+  getSearchedPosts$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fromPostsActions.getSearchedPosts),
+      switchMap(({ search }) =>
+        this.postService.searchPostsByTitle(search, 1, 15).pipe(
+          map(apolloResult => {
+            return fromPostsActions.getAllPostsSuccess({
+              posts: apolloResult.data.posts.data,
+            });
+          }),
+          catchError(({ message }) =>
+            of(fromPostsActions.getAllPostsFailure({ message }))
+          )
+        )
+      )
+    )
+  );
 }

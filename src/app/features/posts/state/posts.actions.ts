@@ -26,3 +26,18 @@ export const getPostByIdSuccess = createAction(
 export const getPostByIdFailure = createAction(
   '[Posts API] get post by id failure'
 );
+
+export const getSearchedPosts = createAction(
+  '[Posts] get searched posts',
+  props<{ search: string }>()
+);
+
+export const getSearchedPostsSuccess = createAction(
+  '[Posts API] get searched posts success',
+  props<{ posts: PostData[] }>()
+);
+
+export const getSearchedPostsFailure = createAction(
+  '[Posts API] get searched posts failure',
+  props<{ message: string }>()
+);

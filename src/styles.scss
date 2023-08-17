@@ -3,9 +3,9 @@
 @import 'tailwindcss/utilities';
 
 body {
-    @apply bg-gradient-to-r from-cyan-100 to-blue-100;
+  @apply bg-gradient-to-r from-cyan-100 to-blue-100;
 }
 
 table {
-    @apply bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4;
+  @apply bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4;
 }

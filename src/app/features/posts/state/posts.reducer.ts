@@ -5,6 +5,9 @@ import {
   getAllPosts,
   getAllPostsFailure,
   getAllPostsSuccess,
+  getSearchedPosts,
+  getSearchedPostsFailure,
+  getSearchedPostsSuccess,
 } from './posts.actions';
 
 export const userFeatureKey = 'posts';
@@ -27,6 +30,22 @@ export const reducer = createReducer(
     error: false,
   })),
   on(getAllPostsFailure, state => ({
+    ...state,
+    loading: false,
+    error: true,
+  })),
+  on(getSearchedPosts, state => ({
+    ...state,
+    loading: true,
+    error: false,
+  })),
+  on(getSearchedPostsSuccess, (state, { posts }) => ({
+    ...state,
+    entities: posts,
+    loading: false,
+    error: false,
+  })),
+  on(getSearchedPostsFailure, state => ({
     ...state,
     loading: false,
     error: true,

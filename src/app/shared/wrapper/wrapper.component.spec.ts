@@ -8,7 +8,7 @@ describe('WrapperComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [WrapperComponent]
+      declarations: [WrapperComponent],
     });
     fixture = TestBed.createComponent(WrapperComponent);
     component = fixture.componentInstance;

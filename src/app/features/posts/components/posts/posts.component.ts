@@ -39,8 +39,10 @@ export class PostsComponent implements OnInit {
       .subscribe(error => (this.error = error));
   }
 
-  search(searchTerm: string) {
-    console.log(searchTerm);
-    debugger;
+  search(search: string) {
+    console.log(search);
+    this.store.dispatch(fromPostsActions.getSearchedPosts({ search }));
   }
+
+  clickedOnPost(id: string) {}
 }

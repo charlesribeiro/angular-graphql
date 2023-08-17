@@ -5,6 +5,7 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
 import { initialAppState as initialState } from '../../state/posts.reducer';
 import { IApp } from 'src/app/state/app.interface';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('PostsComponent', () => {
   let component: PostsComponent;
@@ -15,6 +16,7 @@ describe('PostsComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [PostsComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [provideMockStore({ initialState })],
     });
     fixture = TestBed.createComponent(PostsComponent);

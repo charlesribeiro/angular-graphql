@@ -19,7 +19,7 @@ export const GET_ALL_POSTS = gql`
         user {
           name
           username
-        }      
+        }
       }
       meta {
         totalCount
@@ -44,6 +44,24 @@ export const GET_SINGLE_POST = gql`
           email
           body
         }
+      }
+    }
+  }
+`;
+
+export const GET_POSTS_BY_SEARCH = gql`
+  query SearchPostsByTitle($options: PageQueryOptions) {
+    posts(options: $options) {
+      data {
+        id
+        title
+        user {
+          name
+          username
+        }
+      }
+      meta {
+        totalCount
       }
     }
   }
