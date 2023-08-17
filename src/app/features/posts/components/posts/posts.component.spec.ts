@@ -6,6 +6,7 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { initialAppState as initialState } from '../../state/posts.reducer';
 import { IApp } from 'src/app/state/app.interface';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 describe('PostsComponent', () => {
   let component: PostsComponent;
@@ -16,6 +17,7 @@ describe('PostsComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [PostsComponent],
+      imports: [InfiniteScrollModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [provideMockStore({ initialState })],
     });

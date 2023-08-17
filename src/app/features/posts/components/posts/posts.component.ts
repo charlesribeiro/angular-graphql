@@ -44,5 +44,12 @@ export class PostsComponent implements OnInit {
     this.store.dispatch(fromPostsActions.getSearchedPosts({ search }));
   }
 
-  clickedOnPost(id: string) {}
+  clickedOnPost(id: string) {
+    debugger;
+  }
+
+  onScrolled() {
+    this.store.dispatch(fromPostsActions.getAllPostsMore());
+    return;
+  }
 }

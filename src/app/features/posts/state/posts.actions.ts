@@ -1,7 +1,9 @@
 import { createAction, props } from '@ngrx/store';
 import { PostData } from 'src/app/models/posts.model';
 
-export const getAllPosts = createAction('[Posts] get posts');
+export const getAllPosts = createAction('[Posts] get all posts');
+
+export const getAllPostsMore = createAction('[Posts] get more all posts');
 
 export const getAllPostsSuccess = createAction(
   '[Posts API] get all posts success',
@@ -29,6 +31,11 @@ export const getPostByIdFailure = createAction(
 
 export const getSearchedPosts = createAction(
   '[Posts] get searched posts',
+  props<{ search: string }>()
+);
+
+export const getSearchedPostsMore = createAction(
+  '[Posts] get searched posts more',
   props<{ search: string }>()
 );
 

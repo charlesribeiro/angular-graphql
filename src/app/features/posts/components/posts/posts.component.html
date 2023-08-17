@@ -2,13 +2,13 @@
   <h1>My Blog</h1>
   <app-search (search)="search($event)"></app-search>
 
-  <table class="table-auto width-100 my-4">
-    <app-loader *ngIf="loading">Loading...</app-loader>
+  <table class="table-auto width-100 my-4 flex-items">
     <div *ngIf="error">Error</div>
-    <ng-container *ngIf="!error && !loading">
+    <div *ngIf="!error" infinite-scroll [infiniteScrollDistance]="0.5" [infiniteScrollThrottle]="2000" (scrolled)="onScrolled()">
       <tr *ngFor="let post of allPosts">
         <app-post-list-item [post]="post" (clicked)="clickedOnPost($event)"></app-post-list-item>
       </tr>
-    </ng-container>
+      <app-loader *ngIf="loading"></app-loader>
+    </div>
   </table>
 </app-wrapper>

@@ -11,6 +11,7 @@ import { PostsModule } from './features/posts/posts.module';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../app/shared/shared.module';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { SharedModule } from '../app/shared/shared.module';
     AppRoutingModule,
     PostsModule,
     SharedModule,
+    InfiniteScrollModule,
     EffectsModule.forRoot([PostEffects]),
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),

@@ -18,3 +18,8 @@ export const selectAllPostsError = createSelector(
   selectFeature,
   (posts: Posts) => posts.error
 );
+
+export const selectAllPostsPage = createSelector(
+  selectFeature,
+  (posts: Posts) => posts.page
+);

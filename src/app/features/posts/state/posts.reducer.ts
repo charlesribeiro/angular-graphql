@@ -4,6 +4,7 @@ import { postsInitialState } from '../../../utils/store-utils';
 import {
   getAllPosts,
   getAllPostsFailure,
+  getAllPostsMore,
   getAllPostsSuccess,
   getSearchedPosts,
   getSearchedPostsFailure,
@@ -23,9 +24,15 @@ export const reducer = createReducer(
     loading: true,
     error: false,
   })),
+  on(getAllPostsMore, state => ({
+    ...state,
+    loading: true,
+    error: false,
+    page: state.page + 1,
+  })),
   on(getAllPostsSuccess, (state, { posts }) => ({
     ...state,
-    entities: posts,
+    entities: [...state.entities, ...posts],
     loading: false,
     error: false,
   })),
