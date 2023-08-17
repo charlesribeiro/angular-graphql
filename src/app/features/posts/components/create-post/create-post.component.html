@@ -1,19 +1,22 @@
- <app-wrapper>
-    Create Post
-    <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
-      <div>
-        <label for="id">ID:</label>
-        <input type="text" id="id" formControlName="id">
-      </div>
-      <div>
-        <label for="title">Title:</label>
-        <input type="text" id="title" formControlName="title">
-      </div>
-      <div>
-        <label for="body">Body:</label>
-        <textarea id="body" formControlName="body"></textarea>
-      </div>
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-4" type="submit">Send</button>
-    </form>
-  </app-wrapper>
-  
+<app-wrapper>
+  Create Post
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="id">ID:</label>
+      <input type="text" id="id" formControlName="id" />
+    </div>
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" id="title" formControlName="title" />
+    </div>
+    <div>
+      <label for="body">Body:</label>
+      <textarea id="body" formControlName="body"></textarea>
+    </div>
+    <button
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-4"
+      type="submit">
+      Send
+    </button>
+  </form>
+</app-wrapper>

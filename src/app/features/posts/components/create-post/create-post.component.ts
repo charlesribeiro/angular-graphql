@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import * as fromPostActions from '../../state/posts.actions'
+import * as fromPostActions from '../../state/posts.actions';
 
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post.component.html',
-  styleUrls: ['./create-post.component.scss']
+  styleUrls: ['./create-post.component.scss'],
 })
 export class CreatePostComponent {
   postForm: FormGroup;
@@ -15,9 +15,9 @@ export class CreatePostComponent {
 
   ngOnInit(): void {
     this.postForm = new FormGroup({
-      'id': new FormControl(null, Validators.required),
-      'title': new FormControl(null, Validators.required),
-      'body': new FormControl(null, Validators.required)
+      id: new FormControl(null, Validators.required),
+      title: new FormControl(null, Validators.required),
+      body: new FormControl(null, Validators.required),
     });
   }
 
