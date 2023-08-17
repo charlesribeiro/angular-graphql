@@ -77,4 +77,22 @@ export class PostEffects {
       )
     )
   );
+
+  createSinglePost$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fromPostsActions.createPostById),
+      switchMap(({ id, title, body }) =>
+        this.postService.createSinglePost(id, title, body).pipe(
+          map(apolloResult => {
+            return fromPostsActions.createPostByIdSuccess({
+              post: apolloResult.data.post,
+            });
+          }),
+          catchError(({ message }) =>
+            of(fromPostsActions.createPostByIdFailure({ message }))
+          )
+        )
+      )
+    )
+  );
 }

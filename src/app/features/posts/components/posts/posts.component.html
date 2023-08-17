@@ -1,6 +1,7 @@
 <app-wrapper>
   <h1>My Blog</h1>
   <app-search (search)="search($event)"></app-search>
+  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-4" (click)="createPost()">Create post +</button>
 
   <table class="table-auto width-100 my-4 flex-items">
     <div *ngIf="error">Error</div>
@@ -8,7 +9,7 @@
       *ngIf="!error"
       infinite-scroll
       [infiniteScrollDistance]="0.5"
-      [infiniteScrollThrottle]="1500"
+      [infiniteScrollThrottle]="1200"
       (scrolled)="onScrolled()">
       <tr *ngFor="let post of allPosts">
         <app-post-list-item

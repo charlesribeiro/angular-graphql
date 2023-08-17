@@ -51,6 +51,10 @@ export class PostsComponent implements OnInit {
     this.router.navigate(['/post', id]);
   }
 
+  createPost(): void {
+    this.router.navigate(['/create']);
+  }
+
   onScrolled(): void {
     this.store.dispatch(fromPostsActions.getAllPostsMore());
     return;
