@@ -1,6 +1,5 @@
-<div *ngFor="let post of allPosts">
-  {{ post.id }}
-  {{ post.title }}
-
-  {{ post.body }}
+<div *ngFor="let post of allPosts" class="flex justify-between items-center mb-2">
+  <div>{{ post.id }}</div>
+  <div>{{ post.title }}</div>
+  <div>{{ post.user.username }}</div>
 </div>
