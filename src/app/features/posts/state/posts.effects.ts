@@ -47,13 +47,13 @@ export class PostEffects {
       switchMap(({ search }) =>
         this.postService.searchPostsByTitle(search, 1, 15).pipe(
           map(apolloResult => {
-            return fromPostsActions.getAllPostsSuccess({
+            return fromPostsActions.getSearchedPostsSuccess({
               posts: apolloResult.data.posts.data,
               totalCount: apolloResult.data.posts.meta.totalCount,
             });
           }),
           catchError(({ message }) =>
-            of(fromPostsActions.getAllPostsFailure({ message }))
+            of(fromPostsActions.getSearchedPostsFailure({ message }))
           )
         )
       )

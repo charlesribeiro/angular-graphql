@@ -4,6 +4,6 @@ export const postsInitialState: Posts = {
   entities: [],
   loading: false,
   error: false,
-  page: 1,
+  page: 0,
   totalCount: -1,
 };
